@@ -79,9 +79,16 @@ Once routes are in place:
 
 If the dev server is not running, remind the user to start it and retry step 6.
 
-### 7. Report back
+### 7. Customize `prototype/README.md`, THEN report back
 
-Deliver a checklist the user can use for their demo:
+The starter template ships with a `README.md` containing three sections marked `**TODO:**` — "Screens", "What's real vs. mocked", "What's not implemented yet". Before closing this conversation you MUST edit that file in place, replacing every `TODO:` block with the concrete specifics of what you just generated. The student will close the terminal, re-open the folder days later, and rely on this README to remember how to run the demo. If it still says TODO, they are stuck.
+
+Required edits to `prototype/README.md`:
+- **Screens table**: one row per generated route, with the real screen name, the real URL (including the path you wired up), and a one-sentence "what it shows".
+- **What's real vs. mocked**: explicit list. "The transaction list is hardcoded JSON from `src/data/transactions.ts`. In production this would come from `/api/transactions`."
+- **What's not implemented yet**: be honest. "Login screen is a static form — submitting it does nothing." "The 'Add transaction' button opens a modal but the save action is a no-op." Catalog every button or link that doesn't fully work so the student doesn't get ambushed live.
+
+After the file is saved, print the same information back in chat as a demo checklist so the student sees it immediately:
 
 ```
 Demo Checklist
@@ -92,6 +99,7 @@ Demo Checklist
 [ ] Screen 3: [name] — http://localhost:5173/[path]
 [ ] Mocked data: [describe what is mocked]
 [ ] Known gaps: [list anything not implemented]
+[ ] prototype/README.md customized (screens, mocked data, known gaps filled in)
 ```
 
-Also list the installed shadcn/Magic UI/Origin UI components so the user knows what they have available.
+Then list every component you installed (shadcn primitives, Magic UI, Origin UI entries) so the student knows the vocabulary if they want to extend the prototype later.

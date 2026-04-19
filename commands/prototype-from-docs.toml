@@ -59,7 +59,16 @@ Use Playwright MCP to:
 2. Navigate to each of the three must-have screens and screenshot each.
 3. Report console errors or render failures.
 
-## Step 7: Report back with demo checklist
+## Step 7: Customize prototype/README.md, THEN report back
+
+Before reporting, edit `prototype/README.md` IN PLACE. The starter ships with three sections marked `**TODO:**` — "Screens", "What's real vs. mocked", "What's not implemented yet". Replace every `TODO:` with the concrete specifics of what you just built. The student will close the terminal and re-open the folder later; this README is their only memory aid.
+
+Required edits:
+- **Screens table**: one row per route, real screen name, exact URL (`http://localhost:5173/<path>`), one-sentence purpose.
+- **What's real vs. mocked**: "The transaction list comes from `src/data/transactions.ts` (hardcoded). In production it would come from `/api/transactions`."
+- **What's not implemented yet**: every button, form, or link that doesn't fully work. Don't hide gaps.
+
+After saving the file, print the same info back in chat so the student sees it immediately:
 
 ```
 Demo Checklist
@@ -70,7 +79,8 @@ Demo Checklist
 [ ] Screen 3: [name] — http://localhost:5173/[path]
 [ ] Mocked data: [describe]
 [ ] Known gaps: [list]
+[ ] prototype/README.md customized (screens, mocked, gaps filled)
 ```
 
-Also list all installed components.
+Then list every installed component (shadcn, Magic UI, Origin UI) so the student knows the vocabulary for future extensions.
 """
