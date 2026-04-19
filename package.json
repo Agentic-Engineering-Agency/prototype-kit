@@ -1,0 +1,48 @@
+{
+  "name": "@agentic-engineering/prototype-kit",
+  "version": "0.1.0",
+  "description": "Scaffold production-grade React + shadcn/ui frontend prototypes from product docs. Bundles shadcn MCP, Playwright MCP, Context7 MCP, a frontend-design skill, and a /prototype-from-docs command.",
+  "type": "module",
+  "bin": {
+    "prototype-kit": "./bin/install.js"
+  },
+  "files": [
+    "bin/",
+    "skills/",
+    "commands/",
+    "templates/",
+    "gemini-extension.json",
+    ".mcp.json",
+    ".claude-plugin/",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "init": "node ./bin/install.js"
+  },
+  "keywords": [
+    "react",
+    "shadcn",
+    "prototype",
+    "frontend",
+    "design",
+    "ui",
+    "gemini",
+    "claude",
+    "mcp",
+    "agent"
+  ],
+  "author": "Agentic Engineering Agency <info@agenticengineering.agency>",
+  "license": "MIT",
+  "homepage": "https://github.com/Agentic-Engineering-Agency/prototype-kit",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Agentic-Engineering-Agency/prototype-kit.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Agentic-Engineering-Agency/prototype-kit/issues"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "name": "prototype-kit",
+  "version": "0.1.0",
+  "description": "Scaffold production-grade React + shadcn/ui frontend prototypes from product docs. Bundles shadcn MCP, Playwright MCP, Context7 MCP, a frontend-design skill, and a /prototype-from-docs command.",
+  "mcpServers": {
+    "shadcn": {
+      "command": "npx",
+      "args": ["shadcn@latest", "mcp"]
+    },
+    "playwright": {
+      "command": "npx",
+      "args": ["@playwright/mcp@latest"]
+    },
+    "context7": {
+      "command": "npx",
+      "args": ["-y", "@upstash/context7-mcp"]
+    }
+  }
+}

@@ -1,0 +1,76 @@
+description = "Turn product documentation into a running React + shadcn/ui prototype. Reads docs/, asks 5 clarifying questions, installs components via shadcn MCP, generates routes, and verifies render with Playwright MCP."
+
+prompt = """
+You are now executing the /prototype-from-docs workflow. Follow every step in order.
+
+## Step 1: Read product docs
+
+Check if a `docs/` directory exists in the current working directory.
+- If it exists: read all files inside it (markdown, PDFs, images) and summarize in 2–3 sentences.
+- If it does not exist: ask the user to either create a `docs/` folder with their product documentation, or paste the relevant content directly into the chat.
+
+## Step 2: Ask 5 clarifying questions
+
+Ask the user all of these at once, numbered:
+
+1. **Primary user persona** — Who is the main person using this product?
+2. **Three must-have screens** — Which three views or flows must exist for the prototype to be demonstrable?
+3. **Brand vibe** — Pick two adjectives describing the visual tone (e.g., "minimal and authoritative", "playful and energetic").
+4. **Live data or mocked?** — Does the demo need real API calls, or is hardcoded/mocked data fine?
+5. **Existing assets?** — Are there logos, color hex codes, or design files to match?
+
+Wait for the answers before continuing.
+
+## Step 3: Bootstrap the starter (if needed)
+
+Check whether a `package.json` with a `"dev"` script and `tailwindcss` already exists.
+
+If NOT:
+- Copy `templates/starter/` from this kit into a `prototype/` subdirectory (or the project root if empty).
+- Run `npm install` inside that directory.
+
+If a package.json exists but shadcn is not configured, run: `npx shadcn@latest init -y`
+
+## Step 4: Install required components via shadcn MCP
+
+Use the shadcn MCP to identify and install the components needed for the three screens. Standard baseline:
+
+  npx shadcn@latest add button card input label dialog tabs table badge
+
+For hero/landing sections: check Magic UI (`@magicui` registry).
+For data-dense views: check Origin UI (`@originui` registry).
+
+Install registry components via:
+  npx shadcn@latest add @magicui/<component-name>
+  npx shadcn@latest add @originui/<component-name>
+
+## Step 5: Generate the screens as routes
+
+Create one React route per must-have screen using React Router v7.
+- Routes go in `src/routes/`
+- Root layout at `src/routes/root.tsx` with navigation
+- Apply the frontend-design skill: dark-mode first, brand vibe committed, plausible copy (no Lorem ipsum), no default blue Tailwind buttons, no center-gradient blobs.
+
+## Step 6: Verify render with Playwright MCP
+
+Ask the user to run `npm run dev` and confirm the server starts.
+Use Playwright MCP to:
+1. Navigate to http://localhost:5173 and take a screenshot.
+2. Navigate to each of the three must-have screens and screenshot each.
+3. Report console errors or render failures.
+
+## Step 7: Report back with demo checklist
+
+```
+Demo Checklist
+--------------
+[ ] Dev server: npm run dev (in prototype/)
+[ ] Screen 1: [name] — http://localhost:5173/[path]
+[ ] Screen 2: [name] — http://localhost:5173/[path]
+[ ] Screen 3: [name] — http://localhost:5173/[path]
+[ ] Mocked data: [describe]
+[ ] Known gaps: [list]
+```
+
+Also list all installed components.
+"""

@@ -1,0 +1,21 @@
+# Exclude generated/installed directories from the npm tarball
+templates/starter/node_modules/
+templates/starter/dist/
+templates/starter/.vite/
+*.tsbuildinfo
+node_modules/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Editor
+.idea/
+.vscode/
+
+# Git
+.git/
+.gitignore

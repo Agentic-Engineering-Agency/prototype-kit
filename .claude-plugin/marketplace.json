@@ -1,0 +1,25 @@
+{
+  "name": "prototype-kit",
+  "owner": {
+    "name": "Agentic Engineering Agency",
+    "email": "info@agenticengineering.agency"
+  },
+  "metadata": {
+    "description": "Scaffold production-grade React + shadcn/ui frontend prototypes from product docs."
+  },
+  "plugins": [
+    {
+      "name": "prototype-kit",
+      "source": ".",
+      "description": "Scaffold production-grade React + shadcn/ui frontend prototypes from product docs. Bundles shadcn MCP, Playwright MCP, Context7 MCP, a frontend-design skill, and a /prototype-from-docs command.",
+      "version": "0.1.0",
+      "author": {
+        "name": "Agentic Engineering Agency",
+        "email": "info@agenticengineering.agency"
+      },
+      "homepage": "https://github.com/Agentic-Engineering-Agency/prototype-kit",
+      "repository": "https://github.com/Agentic-Engineering-Agency/prototype-kit",
+      "license": "MIT"
+    }
+  ]
+}
