@@ -11,8 +11,10 @@ Turn your product docs into a running React + shadcn/ui prototype in one agent c
 ### Gemini CLI (recommended — free 1000 req/day)
 
 ```bash
-gemini extensions install https://github.com/Agentic-Engineering-Agency/prototype-kit
+gemini extensions install --consent https://github.com/Agentic-Engineering-Agency/prototype-kit
 ```
+
+The `--consent` flag skips the interactive confirmation prompt so the command works cleanly in scripts and CI. Drop the flag if you prefer to confirm interactively.
 
 ### Claude Code
 
@@ -95,8 +97,6 @@ MIT © Agentic Engineering Agency
 
 ---
 
----
-
 ## Instalación y uso (español)
 
 ### Instalar
@@ -104,8 +104,10 @@ MIT © Agentic Engineering Agency
 **Gemini CLI (recomendado):**
 
 ```bash
-gemini extensions install https://github.com/Agentic-Engineering-Agency/prototype-kit
+gemini extensions install --consent https://github.com/Agentic-Engineering-Agency/prototype-kit
 ```
+
+La bandera `--consent` salta la confirmación interactiva para que el comando corra limpio en scripts o CI. Quítala si prefieres confirmar a mano.
 
 **Claude Code:**
 

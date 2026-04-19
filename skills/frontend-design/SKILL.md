@@ -35,7 +35,7 @@ Only start coding once these are answered in comments at the top of your entry f
 
 - **Commit to a palette, not a gradient.** Pick 1–2 dominant hues, 1 sharp accent, neutrals derived from the dominant hue (not pure gray).
 - **Dark-mode first.** Start with a dark background (`oklch(12% 0.02 260)` range) and derive the light mode from there. Defaulting to white backgrounds produces forgettable output.
-- **Use tweakcn or Magic UI themed palettes** for pre-built CSS variable sets worth stealing. Never ship the default shadcn slate palette unchanged.
+- **Start from a themed palette, not the default slate.** Browse the Magic UI registry (`@magicui`) or hand-pick from OKLCH tooling. Never ship the default shadcn slate palette unchanged.
 - **One accent, used sparingly.** The accent exists to pull the eye to exactly one thing per screen. If everything is accented, nothing is.
 - **Avoid:** purple-on-white gradients, "glassmorphism" without a real backdrop, rainbow gradient text as decoration.
 
