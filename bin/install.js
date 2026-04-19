@@ -111,13 +111,38 @@ function deepMerge(target, source) {
   return out;
 }
 
-// ─── MCP server config (shared) ─────────────────────────────────────────────
+// ─── MCP server configs ─────────────────────────────────────────────────────
 
-const MCP_SERVERS = {
+// Claude Code + Gemini CLI use the canonical MCP shape:
+//   { mcpServers: { <name>: { command, args } } }
+const CANONICAL_MCP = {
   mcpServers: {
     shadcn: { command: "npx", args: ["shadcn@latest", "mcp"] },
     playwright: { command: "npx", args: ["@playwright/mcp@latest"] },
     context7: { command: "npx", args: ["-y", "@upstash/context7-mcp"] },
+  },
+};
+
+// OpenCode uses its own top-level key "mcp" and nests differently:
+//   { mcp: { <name>: { type: "local", command: [ ...full argv... ], enabled } } }
+// See https://opencode.ai/docs/mcp-servers/
+const OPENCODE_MCP = {
+  mcp: {
+    shadcn: {
+      type: "local",
+      command: ["npx", "shadcn@latest", "mcp"],
+      enabled: true,
+    },
+    playwright: {
+      type: "local",
+      command: ["npx", "@playwright/mcp@latest"],
+      enabled: true,
+    },
+    context7: {
+      type: "local",
+      command: ["npx", "-y", "@upstash/context7-mcp"],
+      enabled: true,
+    },
   },
 };
 
@@ -185,7 +210,7 @@ function installClaude() {
 
   // Merge MCP servers into ~/.claude/.mcp.json
   const mcpDest = join(claudeDir, ".mcp.json");
-  mergeJson(mcpDest, MCP_SERVERS);
+  mergeJson(mcpDest, CANONICAL_MCP);
   log(`   merged MCP servers into ${mcpDest}`);
 
   // Copy skills to ~/.claude/skills/
@@ -214,7 +239,7 @@ function installOpenCode() {
     : join(HOME, ".config", "opencode", "config.json");
 
   logStep("→", `OpenCode: merging MCP servers into ${configPath}`);
-  mergeJson(configPath, MCP_SERVERS);
+  mergeJson(configPath, OPENCODE_MCP);
   log(`   Done. Restart OpenCode to activate.`);
   return true;
 }
